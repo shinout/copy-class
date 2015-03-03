@@ -1,0 +1,37 @@
+{
+  "name": "copy-class",
+  "version": "0.0.0",
+  "description": "copy class (coffee-script class, JS's constructor)",
+  "main": "dist/copy-class.js",
+  "scripts": {
+    "test": "cake test",
+    "build": "cake build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinout/copy-class.git"
+  },
+  "directories": {
+    "test": "spec/"
+  },
+  "bugs": {
+    "url": "https://github.com/shinout/copy-class/issues"
+  },
+  "homepage": "https://github.com/shinout/copy-class",
+  "keywords": [
+    "copy",
+    "class",
+    "coffeescript",
+    "constructor",
+    "clone"
+  ],
+  "author": "SHIN Suzuki <shinout310@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "coffee-script": "^1.9.0",
+    "espower-coffee": "^0.10.0",
+    "mocha": "^2.1.0",
+    "power-assert": "^0.10.1"
+  }
+}
