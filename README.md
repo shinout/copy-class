@@ -44,3 +44,16 @@ It's very rare case, but Remember me when you want to use me.
 
 ### vs extends
 extends cannot set the same constructor name.
+
+
+## performance
+
+tested with 100 static props and 100 instance methods:
+
+1. class creation is almost the same as "extends"
+2. instance creation is almost the same as "extends"
+
+you can try benchmark by
+```bash
+$ cake benchmark
+```

@@ -20,3 +20,6 @@ build = (callback) ->
 
 task 'build', 'Build dist/ from src/', ->
   build()
+
+task 'benchmark', 'benchmarks the performance', ->
+  require __dirname + '/benchmark/copy-class'
