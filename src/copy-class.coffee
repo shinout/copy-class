@@ -26,6 +26,7 @@ copyClass =
         F = ->
         F.prototype = originalClass.prototype
         newClass.prototype = new F()
+        newClass.prototype.constructor = newClass
 
         return newClass
 

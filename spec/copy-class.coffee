@@ -24,7 +24,7 @@ describe 'copy-class', ->
                 return 12
 
 
-        class OriginalClass  extends ParentClass
+        class OriginalClass extends ParentClass
 
             constructor: ->
                 super()
@@ -120,3 +120,11 @@ describe 'copy-class', ->
             assert(orig.originalInstanceMethod() isnt 'hello')
 
 
+        it 'has constructor', ->
+            ClonedClass = copyClass.copy(OriginalClass)
+            obj = new ClonedClass()
+
+            assert(obj.constructor is ClonedClass)
+
+            orig = new OriginalClass()
+            assert(orig.constructor is OriginalClass)
