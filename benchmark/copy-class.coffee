@@ -2,8 +2,8 @@ copy = require('../src/copy-class').copy
 
 class OriginalClass
 
-nStaticProps = 100
-nInstanceMethods = 100
+nStaticProps = 10
+nInstanceMethods = 10
 
 i = 0
 while i < nStaticProps

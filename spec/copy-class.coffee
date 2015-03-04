@@ -128,3 +128,40 @@ describe 'copy-class', ->
 
             orig = new OriginalClass()
             assert(orig.constructor is OriginalClass)
+
+
+        it 'has constructor which is not enumerable', ->
+            ClonedClass = copyClass.copy(OriginalClass)
+            obj  = new ClonedClass()
+            orig = new OriginalClass()
+            assert(ClonedClass.prototype.propertyIsEnumerable 'constructor')
+            assert(OriginalClass.prototype.propertyIsEnumerable 'constructor')
+            assert(not obj.propertyIsEnumerable 'constructor')
+            assert(not orig.propertyIsEnumerable 'constructor')
+
+
+        it 'has the same keys as original object', ->
+            ClonedClass = copyClass.copy(OriginalClass)
+            obj = new ClonedClass()
+            orig = new OriginalClass()
+
+            assert(Object.keys(obj).length is Object.keys(orig).length)
+
+
+        it 'prototype has the same key-value', ->
+            ClonedClass = copyClass.copy(OriginalClass)
+            assert Object.keys(ClonedClass.prototype).length is Object.keys(OriginalClass.prototype).length
+
+
+        it 'is not an instance of original class', ->
+            ClonedClass = copyClass.copy(OriginalClass)
+            obj  = new ClonedClass()
+
+            assert obj instanceof ClonedClass
+            assert obj not instanceof OriginalClass
+
+        it 'not class of original object', ->
+            ClonedClass = copyClass.copy(OriginalClass)
+            orig = new OriginalClass()
+            assert orig instanceof OriginalClass
+            assert orig not instanceof ClonedClass

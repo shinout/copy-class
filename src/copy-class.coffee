@@ -1,4 +1,6 @@
 
+getProto = Object.getPrototypeOf ? (obj) -> obj.__proto__
+
 
 copyClass = 
 
@@ -17,16 +19,18 @@ copyClass =
         """)())(originalClass)
 
 
-        # inherit static properties
+        # copy static properties
         for own key, value of originalClass
             newClass[key] = value
 
 
-        # inherit instance properties
+        # copy instance properties
         F = ->
-        F.prototype = originalClass.prototype
-        newClass.prototype = new F()
+        F:: = getProto originalClass.prototype
+        newClass:: = new F()
+        newClass::[k] = v for own k,v of originalClass.prototype
         newClass.prototype.constructor = newClass
+
 
         return newClass
 

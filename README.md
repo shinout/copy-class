@@ -48,10 +48,13 @@ extends cannot set the same constructor name.
 
 ## performance
 
-tested with 100 static props and 100 instance methods:
+tested with 10 static props and 10 instance methods (normal size):
 
-1. class creation is almost the same as "extends"
+1. class creation is 3.5 times slower than "extends"
 2. instance creation is almost the same as "extends"
+
+class creation usually is not repetitive operation, so performance is not the matter.
+it's much more important that no significant difference in creation of instance.
 
 you can try benchmark by
 ```bash
