@@ -4,7 +4,15 @@ getProto = Object.getPrototypeOf ? (obj) -> obj.__proto__
 
 copyClass = 
 
-    copy: (originalClass, name) ->
+    ###*
+    copy class
+
+    @method copy
+    @param {Function} originalClass
+    @param {String} [name] name of the new class (IE does not support)
+    @param {Function} [parentClass]
+    ###
+    copy: (originalClass, name, parentClass) ->
 
         # name of the class. default: original class's name
         name ?= originalClass.name ? 'IEdoesNotSupportFunctionName'
@@ -26,7 +34,12 @@ copyClass =
 
         # copy instance properties
         F = ->
-        F:: = getProto originalClass.prototype
+
+        if parentClass
+            F:: = parentClass.prototype
+        else
+            F:: = getProto originalClass.prototype
+
         newClass:: = new F()
         newClass::[k] = v for own k,v of originalClass.prototype
         newClass.prototype.constructor = newClass
