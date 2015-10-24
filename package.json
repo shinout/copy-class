@@ -5,7 +5,16 @@
   "main": "dist/copy-class.js",
   "scripts": {
     "test": "cake test",
-    "build": "cake build"
+    "build": "cake build",
+    "bmp": "cc-bmp",
+    "bmp-p": "cc-bmp -p",
+    "bmp-m": "cc-bmp -m",
+    "bmp-j": "cc-bmp -j",
+    "circle": "cc-generate-yml",
+    "post-dependencies": "echo post-dependencies",
+    "pre-release": "cake build",
+    "post-release": "echo post-release",
+    "gh-pages": "echo gh-pages"
   },
   "repository": {
     "type": "git",
@@ -32,6 +41,17 @@
     "coffee-script": "^1.9.0",
     "espower-coffee": "^0.10.0",
     "mocha": "^2.1.0",
+    "node-circleci-autorelease": "^1.5.11",
     "power-assert": "^0.10.1"
+  },
+  "node-circleci-autorelease": {
+    "config": {
+      "git-user-name": "CircleCI",
+      "git-user-email": "circleci@cureapp.jp",
+      "version-prefix": "v",
+      "create-branch": false,
+      "create-gh-pages": false,
+      "gh-pages-dir": "doc"
+    }
   }
 }
