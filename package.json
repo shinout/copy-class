@@ -1,6 +1,6 @@
 {
   "name": "copy-class",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "copy class (coffee-script class, JS's constructor)",
   "main": "dist/copy-class.js",
   "scripts": {
