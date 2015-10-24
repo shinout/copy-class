@@ -27,8 +27,8 @@ describe 'copy-class', ->
 
         class OriginalClass extends ParentClass
 
-            constructor: ->
-                super()
+            constructor: (a, b, c) ->
+                super
                 @originalConstructed = true
 
             @originalStaticProp: 2
@@ -41,6 +41,12 @@ describe 'copy-class', ->
 
             originalInstanceMethod: ->
                 return 'originalInstanceMethod'
+
+
+        it 'creates function with the same length', ->
+
+            ClonedClass = copyClass.copy(OriginalClass)
+            assert OriginalClass.length is ClonedClass.length
 
 
         describe '[name]', ->

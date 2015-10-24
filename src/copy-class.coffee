@@ -17,10 +17,12 @@ copyClass =
         # name of the class. default: original class's name
         name ?= originalClass.name ? 'IEdoesNotSupportFunctionName'
 
+        args = ('a' + i for i in [1..originalClass.length]).join(', ')
+
         # copy function
         newClass = (new Function("""
             return function (call) {
-                return function #{name}() {
+                return function #{name}(#{args}) {
                     return call.apply(this, arguments)
                 };
             };
